@@ -1,6 +1,6 @@
 package Payments;
 
-import interfaces.PaymentStrategy;
+import Interfaces.PaymentStrategy;
 
 public class CreditCardPayment implements PaymentStrategy {
 

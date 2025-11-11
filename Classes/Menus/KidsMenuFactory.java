@@ -1,6 +1,7 @@
 package Menus;
 
-import interfaces.MenuFactory;
+import Classes.Menu;
+import Interfaces.MenuFactory;
 
 public class KidsMenuFactory implements MenuFactory {
 

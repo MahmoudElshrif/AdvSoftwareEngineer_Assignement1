@@ -1,6 +1,6 @@
 package DiscountStrategies;
 
-import interfaces.DiscountStrategy;
+import Interfaces.DiscountStrategy;
 
 public class MeatDiscount implements DiscountStrategy {
 
