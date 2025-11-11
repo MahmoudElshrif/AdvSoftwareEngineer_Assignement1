@@ -1,16 +1,13 @@
-package Classes;
 import java.util.List;
 
 public class Menu {
-    private MenuType menuType;
-    private List<MenuItem> menuItems;
+	private List<MenuItem> menuItems;
 
-    public getItems() {
-        return this.menuItems;
-    }
+	public List<MenuItem> getItems() {
+		return this.menuItems;
+	}
 
+	public void displayMenu() {
 
-    public displayMenu() {
-        
-    }
+	}
 }

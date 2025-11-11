@@ -1,6 +1,6 @@
 import java.util.List;
 
-import interfaces.PaymentStrategy;
+import Interfaces.PaymentStrategy;
 
 public class BillingGenerator {
 	PricingService PricingService;

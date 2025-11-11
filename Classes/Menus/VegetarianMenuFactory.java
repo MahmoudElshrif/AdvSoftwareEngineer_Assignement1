@@ -1,6 +1,5 @@
 package Menus;
 
-
 import Interfaces.MenuFactory;
 
 public class VegetarianMenuFactory implements MenuFactory {
