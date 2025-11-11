@@ -1,3 +1,5 @@
+package src.Classes;
+
 public class Addon {
 	private String name;
 	private double price;

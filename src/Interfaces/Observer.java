@@ -1,6 +1,5 @@
-package Interfaces;
+package src.Interfaces;
 
 public interface Observer {
 
-    
-} 
+}

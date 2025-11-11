@@ -1,3 +1,5 @@
+package src.Classes;
+
 import java.util.List;
 
 public class MenuItem {
@@ -15,7 +17,6 @@ public class MenuItem {
 	}
 
 	public double getPrice() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getPrice'");
+		return price;
 	}
 }
