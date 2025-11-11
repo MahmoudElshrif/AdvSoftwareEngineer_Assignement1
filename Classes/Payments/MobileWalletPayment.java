@@ -1,4 +1,6 @@
-package interfaces.Payments;
+package Payments;
+
+import interfaces.PaymentStrategy;
 
 public class MobileWalletPayment implements PaymentStrategy {
 
