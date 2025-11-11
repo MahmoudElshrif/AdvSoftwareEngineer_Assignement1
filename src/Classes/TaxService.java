@@ -1,7 +1,7 @@
 package src.Classes;
 
 public class TaxService {
-	double calculateTax(Order order) {
-		return 0;
+	double calculateTax(double amount) {
+		return amount * 0.1;
 	}
 }
