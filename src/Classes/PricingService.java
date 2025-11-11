@@ -6,7 +6,7 @@ public class PricingService {
 	TaxService TaxService;
 
 	double calculateTotal(Order order) {
-		double total = 0;
+	double total = 0;
 		for (OrderItem oi : order.getItems()) {
 			double price = oi.calculateItemTotal();
 

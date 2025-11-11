@@ -2,11 +2,11 @@ package src.Classes.DiscountStrategies;
 
 import src.Interfaces.DiscountStrategy;
 
-public class PizzaDiscount implements DiscountStrategy {
+public class NoDiscount implements DiscountStrategy {
 
 	@Override
 	public double applyDiscount(double amount) {
-		return amount * 0.7;
+		return amount;
 	}
 
 }
