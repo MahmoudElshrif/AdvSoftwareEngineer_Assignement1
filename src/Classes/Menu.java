@@ -10,6 +10,8 @@ public class Menu {
 	}
 
 	public void displayMenu() {
-
+		for (MenuItem i : menuItems) {
+			System.out.println(i.getDetails());
+		}
 	}
 }
