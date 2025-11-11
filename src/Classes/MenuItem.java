@@ -16,6 +16,10 @@ public class MenuItem {
 				+ "\nAvailable: " + isAvailable;
 	}
 
+	public String getName() {
+		return itemName;
+	}
+
 	public String getCategory() {
 		return category;
 	}

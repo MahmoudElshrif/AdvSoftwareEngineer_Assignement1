@@ -17,6 +17,18 @@ public class OrderItem {
 		return this.itemTotal;
 	}
 
+	public void incQuantity() {
+		quantity++;
+	}
+
+	public List<Addon> getAddon() {
+		return addons;
+	}
+
+	public int getQuanitity() {
+		return quantity;
+	}
+
 	public MenuItem getItem() {
 		return menuitem;
 	}
