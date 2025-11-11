@@ -18,4 +18,9 @@ public class PricingService {
 		total = taxService.calculateTax(total);
 		return total;
 	}
+
+	double calculteTaxes(double amount) {
+		return taxService.calculateTax(amount);
+
+	}
 }

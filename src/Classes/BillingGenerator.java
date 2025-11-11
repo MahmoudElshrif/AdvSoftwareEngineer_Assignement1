@@ -6,14 +6,13 @@ import src.Interfaces.PaymentStrategy;
 
 public class BillingGenerator {
 	PricingService PricingService;
-	PaymentStrategy paymentStrategy;
 	List<Addon> addOns;
 
 	public String generateBill(Order order) {
 		return "";
 	}
 
-	public void processPayment(Order order) {
-
+	public String processPayment(PaymentStrategy paymentStrategy, double amount) {
+		return "Charged $" + amount + " using " + paymentStrategy.getType();
 	}
 }
