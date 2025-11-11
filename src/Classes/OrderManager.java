@@ -7,25 +7,24 @@ import java.util.List;
 public class OrderManager implements Notifier {
 	private List<Observer> observers;
 
-	public void placeOrder() {
-
+	public void placeOrder(Order order) {
+		notifyObservers(order);
 	}
 
 	@Override
-	public void notifyObservers() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'notifyObservers'");
+	public void notifyObservers(Order order) {
+		for (Observer o : observers) {
+			o.update(order);
+		}
 	}
 
 	@Override
 	public void addObserver(Observer o) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'addObserver'");
+		observers.add(o);
 	}
 
 	@Override
 	public void removeObserver(Observer o) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'removeObserver'");
+		observers.remove(o);
 	}
 }

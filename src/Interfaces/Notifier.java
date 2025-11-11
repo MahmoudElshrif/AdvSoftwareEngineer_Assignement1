@@ -1,8 +1,10 @@
 package src.Interfaces;
 
+import src.Classes.Order;
+
 public interface Notifier {
 
-	void notifyObservers();
+	void notifyObservers(Order order);
 
 	void addObserver(Observer o);
 
