@@ -1,17 +1,20 @@
 package src.Classes;
 
+import src.Interfaces.DiscountStrategy;
+
 public class PricingService {
 	TaxService TaxService;
 
 	double calculateTotal(Order order) {
-		return 0;
-	}
+		double total = 0;
+		for (OrderItem oi : order.getItems()) {
+			double price = oi.calculateItemTotal();
 
-	double applyDiscount(Order order) {
-		return 0;
-	}
+			DiscountStrategy disc = DiscountFactory.getStrategy(oi.getItem());
 
-	double calculateFinalTotal(Order order) {
-		return 0;
+			price = disc.applyDiscount(price);
+		}
+
+		return total;
 	}
 }

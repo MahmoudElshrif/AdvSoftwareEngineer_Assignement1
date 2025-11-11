@@ -16,4 +16,8 @@ public class OrderItem {
 		this.itemTotal = (menuitem.getPrice() + addOnsTotal) * quantity;
 		return this.itemTotal;
 	}
+
+	public MenuItem getItem() {
+		return menuitem;
+	}
 }

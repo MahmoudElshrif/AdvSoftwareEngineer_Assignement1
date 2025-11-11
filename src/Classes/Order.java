@@ -1,4 +1,5 @@
 package src.Classes;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,6 +20,10 @@ public class Order {
 
 	public void removeItem(OrderItem item) {
 		this.orderItems.remove(item);
+	}
+
+	public List<OrderItem> getItems(){
+		return orderItems;
 	}
 
 	public void updateStatus(OrderStatus newStatus) {
