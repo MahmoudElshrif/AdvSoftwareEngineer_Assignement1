@@ -22,9 +22,9 @@ public class Main {
 		// Step 1: Ask for username
 		System.out.println("===== Welcome to Restaurant Order System =====");
 		currentUser = getUserInput();
-
 		// Step 2: Main menu loop
 		boolean running = true;
+		currentOrder = new Order(currentUser);
 		while (running) {
 			System.out.println("\n===== Main Menu =====");
 			System.out.println("1. Browse Menu & Order");
@@ -70,34 +70,34 @@ public class Main {
 		return user;
 	}
 
+	private static void selectOrderType() {
+		System.out.println("\n===== Select Order Type =====");
+		System.out.println("1. Dine In");
+		System.out.println("2. Takeaway");
+		System.out.println("3. Delivery");
+		System.out.print("Enter your choice: ");
+		String orderTypeChoice = scanner.nextLine().trim();
+
+		OrderType orderType = OrderType.DINE_IN;
+		switch (orderTypeChoice) {
+			case "1":
+				orderType = OrderType.DINE_IN;
+				break;
+			case "2":
+				orderType = OrderType.TAKEAWAY;
+				break;
+			case "3":
+				orderType = OrderType.DELIVERY;
+				break;
+			default:
+				System.out.println("Invalid choice. Defaulting to Dine In.");
+		}
+
+		currentOrder.setOrderType(orderType);
+	}
+
 	// Step 2: Browse menu and add items to order
 	private static void browseMenuAndOrder() {
-		// Create a new order if one doesn't exist
-		if (currentOrder == null) {
-			System.out.println("\n===== Select Order Type =====");
-			System.out.println("1. Dine In");
-			System.out.println("2. Takeaway");
-			System.out.println("3. Delivery");
-			System.out.print("Enter your choice: ");
-			String orderTypeChoice = scanner.nextLine().trim();
-
-			OrderType orderType = OrderType.DINE_IN;
-			switch (orderTypeChoice) {
-				case "1":
-					orderType = OrderType.DINE_IN;
-					break;
-				case "2":
-					orderType = OrderType.TAKEAWAY;
-					break;
-				case "3":
-					orderType = OrderType.DELIVERY;
-					break;
-				default:
-					System.out.println("Invalid choice. Defaulting to Dine In.");
-			}
-
-			currentOrder = new Order(currentUser, orderType);
-		}
 
 		// Select menu type
 		System.out.println("\n===== Select Menu Type =====");
@@ -212,10 +212,12 @@ public class Main {
 
 	// Step 4: Process payment
 	private static void proceedToPayment() {
+
 		if (currentOrder == null || currentOrder.getItems().isEmpty()) {
 			System.out.println("No items in current order. Please add items first.");
 			return;
 		}
+		selectOrderType();
 
 		// Display bill
 		System.out.println("\n===== Order Summary =====");
@@ -266,7 +268,7 @@ public class Main {
 		System.out.println("Order ID: " + currentOrder.getOrderId());
 
 		// Reset current order
-		currentOrder = null;
+		currentOrder = new Order(currentUser);
 
 		// Ask if they want to place another order
 		System.out.print("\nWould you like to place another order? (yes/no): ");

@@ -14,13 +14,16 @@ public class Order {
 	private OrderType orderType;
 	private LocalDate CreatedAt;
 
-	public Order(User customer, OrderType orderType) {
+	public Order(User customer) {
 		this.customer = customer;
 		this.orderId = orderCount;
 		orderCount++;
-		this.orderType = orderType;
 		this.orderItems = new ArrayList<>();
 		this.CreatedAt = LocalDate.now();
+	}
+
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
 	}
 
 	public void addItem(OrderItem item) {
