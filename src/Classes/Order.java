@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import src.Enumeration.OrderStatus;
 import src.Enumeration.OrderType;
 
 public class Order {
@@ -13,7 +12,6 @@ public class Order {
 	private List<OrderItem> orderItems;
 	private User customer;
 	private OrderType orderType;
-	private OrderStatus orderStatus;
 	private LocalDate CreatedAt;
 
 	public Order(User customer, OrderType orderType) {
@@ -22,7 +20,6 @@ public class Order {
 		orderCount++;
 		this.orderType = orderType;
 		this.orderItems = new ArrayList<>();
-		this.orderStatus = OrderStatus.PENDING;
 		this.CreatedAt = LocalDate.now();
 	}
 
@@ -36,10 +33,6 @@ public class Order {
 
 	public List<OrderItem> getItems() {
 		return orderItems;
-	}
-
-	public void updateStatus(OrderStatus newStatus) {
-		this.orderStatus = newStatus;
 	}
 
 	public int getOrderId() {
