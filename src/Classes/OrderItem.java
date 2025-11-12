@@ -25,6 +25,10 @@ public class OrderItem {
 		return addons;
 	}
 
+	public void addAddon(Addon addon) {
+		addons.add(addon);
+	}
+
 	public int getQuanitity() {
 		return quantity;
 	}

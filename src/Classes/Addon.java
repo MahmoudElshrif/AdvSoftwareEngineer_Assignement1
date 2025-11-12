@@ -4,7 +4,7 @@ public class Addon {
 	private String name;
 	private double price;
 
-	Addon(String name, double price) {
+	public Addon(String name, double price) {
 		this.name = name;
 		this.price = price;
 	}

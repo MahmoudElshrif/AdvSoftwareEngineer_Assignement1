@@ -1,12 +1,13 @@
 package src.Classes;
 
-import java.util.List;
-
 import src.Interfaces.PaymentStrategy;
 
 public class BillingGenerator {
 	PricingService pricingService;
-	List<Addon> addOns;
+
+	public BillingGenerator() {
+		pricingService = new PricingService();
+	}
 
 	public String generateBill(Order order) {
 		String bill = "";
