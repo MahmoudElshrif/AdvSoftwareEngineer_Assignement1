@@ -18,6 +18,10 @@ public class User {
 		this.orders.add(newOrder);
 	}
 
+	public String getPhone() {
+		return this.phone;
+	}
+
 	public List<Order> getOrders() {
 		return this.orders;
 	}

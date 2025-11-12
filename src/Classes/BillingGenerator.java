@@ -11,14 +11,14 @@ public class BillingGenerator {
 	}
 
 	public String generateBill(Order order) {
-		String bill = "";
+		String bill = "Phone number: " + order.getCustomer().getPhone() + "\n\n";
 		for (OrderItem i : order.getItems()) {
 			DiscountStrategy disc = DiscountFactory.getStrategy(i.getItem());
 			bill += "-" + i.getItem().getName() + " $" + i.getItem().getPrice() + " x" + i.getQuantity() + "\n";
 			if (!disc.getDisountDetails().isEmpty())
 				bill += "  " + disc.getDisountDetails() + " $" + disc.applyDiscount(i.getItem().getPrice()) + "\n";
 			for (Addon addon : i.getAddons()) {
-				bill += "    *" + addon.getName() + " $" + addon.getPrice()  + "\n";
+				bill += "    *" + addon.getName() + " $" + addon.getPrice() + "\n";
 			}
 
 			bill += "-- $" + i.calculateItemTotal() + "\n";

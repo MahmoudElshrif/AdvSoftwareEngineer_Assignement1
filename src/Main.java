@@ -19,6 +19,7 @@ public class Main {
 	private static UserOrderObserver userOrderObserver = new UserOrderObserver();
 
 	public static void main(String args[]) {
+		orderManager.addObserver(userOrderObserver);
 		// Step 1: Ask for username
 		System.out.println("===== Welcome to Restaurant Order System =====");
 		currentUser = getUserInput();
@@ -65,7 +66,10 @@ public class Main {
 	private static User getUserInput() {
 		System.out.print("Enter your username: ");
 		String userName = scanner.nextLine().trim();
-		User user = new User(userName, "");
+		System.out.print("Enter your phone number: ");
+		String phone = scanner.nextLine().trim();
+		User user = new User(userName, phone);
+
 		userOrderObserver.setUser(user);
 		return user;
 	}
