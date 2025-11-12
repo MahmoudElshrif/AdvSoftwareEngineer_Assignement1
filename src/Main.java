@@ -244,16 +244,16 @@ public class Main {
 				return;
 		}
 
-		// Calculate total (simplified - using first item price for demo)
+		// Calculate total
 		double total = 0;
-		for (OrderItem item : currentOrder.getItems()) {
-			total += item.calculateItemTotal();
-		}
-
 		PricingService price = new PricingService();
+
+		total = price.calculateTotal(currentOrder);
+		double tax = price.calculteTaxes(total);
+		double finalTotal = total + tax;
+
 		// Process payment
-		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy,
-				total + price.calculteTaxes(total));
+		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy,finalTotal);
 		System.out.println("\n" + paymentConfirmation);
 
 		// Add order to user's order history

@@ -18,10 +18,10 @@ public class BillingGenerator {
 			if (!disc.getDisountDetails().isEmpty())
 				bill += "  " + disc.getDisountDetails() + " $" + disc.applyDiscount(i.getItem().getPrice()) + "\n";
 			for (Addon addon : i.getAddons()) {
-				bill += "    *" + addon.getName() + "\n";
+				bill += "    *" + addon.getName() + " $" + addon.getPrice()  + "\n";
 			}
 
-			bill += "-- $" + i.calculateItemTotal();
+			bill += "-- $" + i.calculateItemTotal() + "\n";
 		}
 
 		bill += "\n----------\n\n";
