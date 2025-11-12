@@ -65,7 +65,7 @@ public class Main {
 	private static User getUserInput() {
 		System.out.print("Enter your username: ");
 		String userName = scanner.nextLine().trim();
-		User user = new User(1, userName, "", "", "");
+		User user = new User(userName, "");
 		userOrderObserver.setUser(user);
 		return user;
 	}
