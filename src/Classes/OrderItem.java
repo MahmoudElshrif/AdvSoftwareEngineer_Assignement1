@@ -17,11 +17,11 @@ public class OrderItem {
 	}
 
 	public double calculateItemTotal() {
-		double addOnsTotal = 0.0;
-		for (Addon addOn : addons) {
-			addOnsTotal += addOn.getPrice();
+		double addonsTotal = 0.0;
+		for (Addon addon : addons) {
+			addonsTotal += addon.getPrice();
 		}
-		this.itemTotal = (menuitem.getPrice() + addOnsTotal) * quantity;
+		this.itemTotal = (menuitem.getPrice() + addonsTotal) * quantity;
 		return this.itemTotal;
 	}
 
@@ -29,7 +29,7 @@ public class OrderItem {
 		quantity++;
 	}
 
-	public List<Addon> getAddon() {
+	public List<Addon> getAddons() {
 		return addons;
 	}
 
@@ -37,7 +37,7 @@ public class OrderItem {
 		addons.add(addon);
 	}
 
-	public int getQuanitity() {
+	public int getQuantity() {
 		return quantity;
 	}
 

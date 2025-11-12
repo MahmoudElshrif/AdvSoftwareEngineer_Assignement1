@@ -3,7 +3,7 @@ package src.Classes;
 import src.Interfaces.DiscountStrategy;
 
 public class PricingService {
-	TaxService taxService;
+	TaxService taxService = new TaxService();
 
 	double calculateTotal(Order order) {
 		double total = 0;
@@ -15,7 +15,7 @@ public class PricingService {
 			price = disc.applyDiscount(price);
 			total += price;
 		}
-		total += taxService.calculateTax(total);
+		// total += taxService.calculateTax(total);
 		return total;
 	}
 

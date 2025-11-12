@@ -12,11 +12,12 @@ public class BillingGenerator {
 	public String generateBill(Order order) {
 		String bill = "";
 		for (OrderItem i : order.getItems()) {
-			bill += "-" + i.getItem().getName() + " $" + i.getItem().getPrice() + " x" + i.getQuanitity() + "\n";
-			for (Addon addon : i.getAddon()) {
-				bill += "---" + addon.getName() + "\n";
+			bill += "-" + i.getItem().getName() + " $" + i.getItem().getPrice() + " x" + i.getQuantity() + "\n";
+			for (Addon addon : i.getAddons()) {
+				bill += "---" + addon.getName() + " $" +addon.getPrice() + "\n";
 			}
 		}
+		System.out.println("tax: 10% applied");
 
 		bill += "\n----------\n\n";
 

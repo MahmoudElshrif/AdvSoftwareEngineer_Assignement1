@@ -128,6 +128,7 @@ public class Main {
 
 		for (int i = 0; i < items.size(); i++) {
 			System.out.println((i + 1) + ". " + items.get(i).getDetails());
+			System.out.println("-----------------------");
 		}
 
 		System.out.print("\nEnter item number to add to order (0 to skip): ");
@@ -242,7 +243,7 @@ public class Main {
 				System.out.println("Invalid payment method.");
 				return;
 		}
-
+		
 		// Calculate total (simplified - using first item price for demo)
 		double total = 0;
 		for (OrderItem item : currentOrder.getItems()) {
@@ -286,7 +287,7 @@ public class Main {
 			System.out.println("Date: " + order.getCreatedAt());
 			System.out.println("Items: ");
 			for (OrderItem item : order.getItems()) {
-				System.out.println("  - " + item.getItem().getName() + " x" + item.getQuanitity());
+				System.out.println("  - " + item.getItem().getName() + " x" + item.getQuantity());
 			}
 			double total = 0;
 			for (OrderItem item : order.getItems()) {
