@@ -1,6 +1,7 @@
 package src.Classes;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import src.Enumeration.OrderStatus;
@@ -20,7 +21,7 @@ public class Order {
 		this.orderId = orderCount;
 		orderCount++;
 		this.orderType = orderType;
-
+		this.orderItems = new ArrayList<>();
 		this.orderStatus = OrderStatus.PENDING;
 		this.CreatedAt = LocalDate.now();
 	}
@@ -39,6 +40,18 @@ public class Order {
 
 	public void updateStatus(OrderStatus newStatus) {
 		this.orderStatus = newStatus;
+	}
+
+	public int getOrderId() {
+		return this.orderId;
+	}
+
+	public LocalDate getCreatedAt() {
+		return this.CreatedAt;
+	}
+
+	public User getCustomer() {
+		return this.customer;
 	}
 
 }

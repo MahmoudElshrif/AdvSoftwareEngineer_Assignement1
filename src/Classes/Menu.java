@@ -10,10 +10,14 @@ public class Menu {
 
 	public Menu(List<MenuItem> menuItems) {
 		this.menuItems = menuItems;
-		List<Addon> addons = new ArrayList<>();
-		addons.add(new Addon("Fries", 1));
-		addons.add(new Addon("Sauce", 0.2));
-		addons.add(new Addon("Katchup", 0.24));
+		this.addons = new ArrayList<>();
+		this.addons.add(new Addon("Fries", 1));
+		this.addons.add(new Addon("Sauce", 0.2));
+		this.addons.add(new Addon("Katchup", 0.24));
+	}
+
+	public List<Addon> getAddons() {
+		return this.addons;
 	}
 
 	public List<MenuItem> getItems() {

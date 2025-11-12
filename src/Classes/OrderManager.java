@@ -2,10 +2,15 @@ package src.Classes;
 
 import src.Interfaces.Notifier;
 import src.Interfaces.Observer;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager implements Notifier {
 	private List<Observer> observers;
+
+	public OrderManager() {
+		this.observers = new ArrayList<>();
+	}
 
 	public void placeOrder(Order order) {
 		notifyObservers(order);

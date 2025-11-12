@@ -1,5 +1,6 @@
 package src.Classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderItem {
@@ -7,6 +8,13 @@ public class OrderItem {
 	private int quantity;
 	private List<Addon> addons;
 	private double itemTotal;
+
+	public OrderItem(MenuItem menuitem) {
+		this.menuitem = menuitem;
+		this.quantity = 1;
+		this.addons = new ArrayList<>();
+		this.itemTotal = 0.0;
+	}
 
 	public double calculateItemTotal() {
 		double addOnsTotal = 0.0;
