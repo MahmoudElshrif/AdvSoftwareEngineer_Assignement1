@@ -15,7 +15,7 @@ public class PricingService {
 			price = disc.applyDiscount(price);
 			total += price;
 		}
-		total = taxService.calculateTax(total);
+		total += taxService.calculateTax(total);
 		return total;
 	}
 

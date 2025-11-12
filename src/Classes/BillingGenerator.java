@@ -5,7 +5,7 @@ import java.util.List;
 import src.Interfaces.PaymentStrategy;
 
 public class BillingGenerator {
-	PricingService PricingService;
+	PricingService pricingService;
 	List<Addon> addOns;
 
 	public String generateBill(Order order) {
@@ -19,10 +19,10 @@ public class BillingGenerator {
 
 		bill += "\n----------\n\n";
 
-		double total = PricingService.calculateTotal(order);
+		double total = pricingService.calculateTotal(order);
 		bill += total + "\n";
 
-		bill += PricingService.calculteTaxes(total) + "\n";
+		bill += "Tax: " + pricingService.calculteTaxes(total) + "\n";
 
 		return bill;
 	}

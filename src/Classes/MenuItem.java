@@ -1,19 +1,18 @@
 package src.Classes;
 
-import java.util.List;
-
 public class MenuItem {
-	private int itemId;
 	private String itemName;
-	private String description;
 	private double price;
 	private String category;
-	private boolean isAvailable;
-	private List<Addon> availableAddons;
+
+	public MenuItem(String itemName, double price, String category) {
+		this.itemName = itemName;
+		this.price = price;
+		this.category = category;
+	}
 
 	public String getDetails() {
-		return "Item: " + itemName + "\nDescription: " + description + "\nPrice: $" + price + "\nCategory: " + category
-				+ "\nAvailable: " + isAvailable;
+		return "Item: " + itemName + "\nPrice: $" + price + "\nCategory: " + category;
 	}
 
 	public String getName() {
