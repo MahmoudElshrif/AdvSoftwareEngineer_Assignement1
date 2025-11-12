@@ -6,8 +6,8 @@ import src.Interfaces.DiscountStrategy;
 public class DiscountFactory {
 	public static DiscountStrategy getStrategy(MenuItem item) {
 		switch (item.getCategory().toLowerCase()) {
-			case "chiken":
-				return new NoDiscount();
+			case "chicken":
+				return new ChickenDiscount();
 			case "meat":
 				return new MeatDiscount();
 			case "pizza":
