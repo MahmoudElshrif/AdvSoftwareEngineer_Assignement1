@@ -270,12 +270,7 @@ public class Main {
 		// Reset current order
 		currentOrder = new Order(currentUser);
 
-		// Ask if they want to place another order
-		System.out.print("\nWould you like to place another order? (yes/no): ");
-		String continueChoice = scanner.nextLine().trim().toLowerCase();
-		if (!continueChoice.equals("yes") && !continueChoice.equals("y")) {
-			System.out.println("Thank you for your order!");
-		}
+		System.out.println("Thank you for your order!");
 	}
 
 	// Step 5: View order history
