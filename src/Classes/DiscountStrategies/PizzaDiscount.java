@@ -9,4 +9,8 @@ public class PizzaDiscount implements DiscountStrategy {
 		return amount * 0.7;
 	}
 
+	@Override
+	public String getDisountDetails() {
+		return "30% pizza discount applied";
+	}
 }

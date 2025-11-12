@@ -9,4 +9,8 @@ public class ChickenDiscount implements DiscountStrategy {
 		return amount * 0.8;
 	}
 
+	@Override
+	public String getDisountDetails() {
+		return "20% chicken discount applied";
+	}
 }

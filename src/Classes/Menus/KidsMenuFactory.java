@@ -20,4 +20,5 @@ public class KidsMenuFactory implements MenuFactory {
 		return new Menu(items);
 	}
 
+	
 }

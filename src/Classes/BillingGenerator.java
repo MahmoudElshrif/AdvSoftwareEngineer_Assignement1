@@ -1,5 +1,6 @@
 package src.Classes;
 
+import src.Interfaces.DiscountStrategy;
 import src.Interfaces.PaymentStrategy;
 
 public class BillingGenerator {
@@ -12,12 +13,15 @@ public class BillingGenerator {
 	public String generateBill(Order order) {
 		String bill = "";
 		for (OrderItem i : order.getItems()) {
+			DiscountStrategy disc = DiscountFactory.getStrategy(i.getItem());
 			bill += "-" + i.getItem().getName() + " $" + i.getItem().getPrice() + " x" + i.getQuantity() + "\n";
+			if(!disc.getDisountDetails().isEmpty())
+				bill += "  " + disc.getDisountDetails() + " $" + disc.applyDiscount(i.getItem().getPrice())  + "\n";
 			for (Addon addon : i.getAddons()) {
-				bill += "---" + addon.getName() + " $" +addon.getPrice() + "\n";
+				bill += "    *" + addon.getName() + " $" +addon.getPrice() + "\n";
 			}
 		}
-		System.out.println("tax: 10% applied");
+		
 
 		bill += "\n----------\n\n";
 

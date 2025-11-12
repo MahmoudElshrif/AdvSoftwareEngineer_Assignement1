@@ -140,7 +140,7 @@ public class Main {
 				MenuItem selectedItem = items.get(itemIndex);
 				OrderItem orderItem = new OrderItem(selectedItem);
 				currentOrder.addItem(orderItem);
-				System.out.println("✓ " + selectedItem.getName() + " added to order!");
+				System.out.println(selectedItem.getName() + " added to order!");
 			} else if (!itemChoice.equals("0")) {
 				System.out.println("Invalid item number.");
 			}
@@ -285,9 +285,13 @@ public class Main {
 		for (Order order : orders) {
 			System.out.println("Order ID: " + order.getOrderId());
 			System.out.println("Date: " + order.getCreatedAt());
+			System.out.println("Order Type: " + order.getOrderType());
 			System.out.println("Items: ");
 			for (OrderItem item : order.getItems()) {
-				System.out.println("  - " + item.getItem().getName() + " x" + item.getQuantity());
+				System.out.println("  - " + item.getItem().getName() + " $" + item.getItem().getPrice() + " x" + item.getQuantity());
+				for( Addon addon : item.getAddons()) {
+					System.out.println("     * " + addon.getName() + " $" + addon.getPrice());
+				}
 			}
 			double total = 0;
 			for (OrderItem item : order.getItems()) {

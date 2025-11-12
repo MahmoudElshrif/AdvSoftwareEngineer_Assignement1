@@ -54,4 +54,8 @@ public class Order {
 		return this.customer;
 	}
 
+	public OrderType getOrderType() {
+		return this.orderType;
+	}
+
 }

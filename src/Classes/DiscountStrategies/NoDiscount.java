@@ -9,4 +9,8 @@ public class NoDiscount implements DiscountStrategy {
 		return amount;
 	}
 
+	@Override
+	public String getDisountDetails() {
+		return "";
+	}
 }
