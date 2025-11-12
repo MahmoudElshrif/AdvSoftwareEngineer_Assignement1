@@ -16,6 +16,7 @@ public class Main {
 	private static Order currentOrder;
 	private static BillingGenerator billingGenerator = new BillingGenerator();
 	private static OrderManager orderManager = new OrderManager();
+	private static UserOrderObserver userOrderObserver = new UserOrderObserver();
 
 	public static void main(String args[]) {
 		// Step 1: Ask for username
@@ -64,7 +65,9 @@ public class Main {
 	private static User getUserInput() {
 		System.out.print("Enter your username: ");
 		String userName = scanner.nextLine().trim();
-		return new User(1, userName, "", "", "");
+		User user = new User(1, userName, "", "", "");
+		userOrderObserver.setUser(user);
+		return user;
 	}
 
 	// Step 2: Browse menu and add items to order
@@ -253,11 +256,10 @@ public class Main {
 		double finalTotal = total + tax;
 
 		// Process payment
-		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy,finalTotal);
+		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy, finalTotal);
 		System.out.println("\n" + paymentConfirmation);
 
 		// Add order to user's order history
-		currentUser.addOrder(currentOrder);
 		orderManager.placeOrder(currentOrder);
 
 		System.out.println("Order placed successfully!");
