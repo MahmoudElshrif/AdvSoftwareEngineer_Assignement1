@@ -15,20 +15,23 @@ public class BillingGenerator {
 		for (OrderItem i : order.getItems()) {
 			DiscountStrategy disc = DiscountFactory.getStrategy(i.getItem());
 			bill += "-" + i.getItem().getName() + " $" + i.getItem().getPrice() + " x" + i.getQuantity() + "\n";
-			if(!disc.getDisountDetails().isEmpty())
-				bill += "  " + disc.getDisountDetails() + " $" + disc.applyDiscount(i.getItem().getPrice())  + "\n";
+			if (!disc.getDisountDetails().isEmpty())
+				bill += "  " + disc.getDisountDetails() + " $" + disc.applyDiscount(i.getItem().getPrice()) + "\n";
 			for (Addon addon : i.getAddons()) {
-				bill += "    *" + addon.getName() + " $" +addon.getPrice() + "\n";
+				bill += "    *" + addon.getName() + "\n";
 			}
+
+			bill += "-- $" + i.calculateItemTotal();
 		}
-		
 
 		bill += "\n----------\n\n";
 
 		double total = pricingService.calculateTotal(order);
-		bill += total + "\n";
+		bill += "Total: $" + total + "\n";
 
-		bill += "Tax: " + pricingService.calculteTaxes(total) + "\n";
+		bill += "Tax: $" + pricingService.calculteTaxes(total) + "\n";
+
+		bill += "Final Total: $" + (total + pricingService.calculteTaxes(total)) + '\n';
 
 		return bill;
 	}

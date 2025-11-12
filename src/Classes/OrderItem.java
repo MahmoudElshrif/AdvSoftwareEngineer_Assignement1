@@ -3,26 +3,27 @@ package src.Classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import src.Interfaces.DiscountStrategy;
+
 public class OrderItem {
 	private MenuItem menuitem;
 	private int quantity;
 	private List<Addon> addons;
-	private double itemTotal;
 
 	public OrderItem(MenuItem menuitem) {
 		this.menuitem = menuitem;
 		this.quantity = 1;
 		this.addons = new ArrayList<>();
-		this.itemTotal = 0.0;
 	}
 
 	public double calculateItemTotal() {
-		double addonsTotal = 0.0;
+		DiscountStrategy disc = DiscountFactory.getStrategy(menuitem);
+		double total = disc.applyDiscount(menuitem.getPrice());
 		for (Addon addon : addons) {
-			addonsTotal += addon.getPrice();
+			total += addon.getPrice();
 		}
-		this.itemTotal = (menuitem.getPrice() + addonsTotal) * quantity;
-		return this.itemTotal;
+		total *= quantity;
+		return total;
 	}
 
 	public void incQuantity() {

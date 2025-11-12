@@ -1,26 +1,24 @@
 package src.Classes;
 
-import src.Interfaces.DiscountStrategy;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class PricingService {
 	TaxService taxService = new TaxService();
 
-	double calculateTotal(Order order) {
+	public double calculateTotal(Order order) {
 		double total = 0;
 		for (OrderItem oi : order.getItems()) {
 			double price = oi.calculateItemTotal();
 
-			DiscountStrategy disc = DiscountFactory.getStrategy(oi.getItem());
-
-			price = disc.applyDiscount(price);
 			total += price;
 		}
 		// total += taxService.calculateTax(total);
-		return total;
+		return BigDecimal.valueOf(total).setScale(3, RoundingMode.HALF_UP).doubleValue();
 	}
 
-	double calculteTaxes(double amount) {
-		return taxService.calculateTax(amount);
+	public double calculteTaxes(double amount) {
+		return BigDecimal.valueOf(taxService.calculateTax(amount)).setScale(3, RoundingMode.HALF_UP).doubleValue();
 
 	}
 }

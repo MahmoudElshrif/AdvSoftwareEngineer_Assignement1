@@ -243,15 +243,17 @@ public class Main {
 				System.out.println("Invalid payment method.");
 				return;
 		}
-		
+
 		// Calculate total (simplified - using first item price for demo)
 		double total = 0;
 		for (OrderItem item : currentOrder.getItems()) {
 			total += item.calculateItemTotal();
 		}
 
+		PricingService price = new PricingService();
 		// Process payment
-		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy, total);
+		String paymentConfirmation = billingGenerator.processPayment(paymentStrategy,
+				total + price.calculteTaxes(total));
 		System.out.println("\n" + paymentConfirmation);
 
 		// Add order to user's order history
@@ -288,8 +290,9 @@ public class Main {
 			System.out.println("Order Type: " + order.getOrderType());
 			System.out.println("Items: ");
 			for (OrderItem item : order.getItems()) {
-				System.out.println("  - " + item.getItem().getName() + " $" + item.getItem().getPrice() + " x" + item.getQuantity());
-				for( Addon addon : item.getAddons()) {
+				System.out.println("  - " + item.getItem().getName() + " $" + item.getItem().getPrice() + " x"
+						+ item.getQuantity());
+				for (Addon addon : item.getAddons()) {
 					System.out.println("     * " + addon.getName() + " $" + addon.getPrice());
 				}
 			}
