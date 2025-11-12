@@ -1,6 +1,5 @@
 package src.Classes;
 
-import java.util.List;
 
 public class MenuItem {
 	private String itemName;
